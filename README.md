@@ -1,6 +1,8 @@
 # RestrictedCreative
 Extremely lightweight, but fully-featured and customizable Creative mode limiter.
 
+Buy from Spigot page: <link>
+
 ## Description
 Give your players access to creative mode - safely - without jeopardising survival experience! RestrictedCreative uses very little resources and is extremely customizable. It covers all basic creative limiting functions, such as separate inventories, block placement tracking and disabling interactions with inventories, while including several new useful features, for example changing default command, forcing colorful armor and disabling interaction with shops on signs.
 
