@@ -1,0 +1,137 @@
+# database:
+#   type: mysql or sqlite
+#   username: name of the mysql database user
+#   password: mysql user's password
+#   host: mysql host name or ip
+#   port: mysql port, default is 3306
+#   database: name of the database used
+#   table: name of the table used
+#
+# general:
+#   disabled-worlds:
+#     list of worlds this plugin is disabled in
+#     by default, creative players can't travel to worlds listed here
+#     if you want to allow everything, delete the list and put "[]" after "disabled-worlds:"
+#   command:
+#     name: the main command name
+#     aliases: other forms of the main command
+#   separate-invs: whether creative and survival/adventure inventories should be separate
+#   save-on-death: whether creative inventories should be saved on death
+#   force-creative-armor: whther to automatically put non-removable colored armor on creative players
+#   track:
+#     save-blocks: whether to save blocks placed in creative mode. REQUIRED for remove-drops: true
+#     remove-drops: whether to remove item drops from blocks placed in creative 
+#   disable:
+#     interact:
+#       inventories: whether to disable interaction with inventories (chests, hoppers, villagers etc)
+#       signs: whether to disable interaction with signs (shops - [Buy], [Sell] etc)
+#       entities: whether to disable interaction with entities (armor stands, touch holograms etc)
+#     item:
+#       drop: whether to disable item dropping in creative mode 
+#       pickup: whether to disable item pickup in creative mode
+#       throw: whether to disable throwing/shooting items (splash potions, eggs, arrows etc)
+#     commands:
+#       list of commands which are disabled for creative players
+#       supports powerful RegEx - http://regexr.com/
+#       if you want to allow everything, delete the list and put "[]" after "commands:"
+#     combat:
+#       pvp: whether to disable player vs player combat
+#       pve: whether to disable player vs entity combat
+#     creation:
+#       wither: whether to disable creating Wither from creative blocks
+#       snow-golem: whether to disable creating Snow Golem from creative blocks
+#       iron-golem: whether to disable creating Iron Golem from creative blocks
+#
+# messages:
+#   if you wish to disable a message, replace it with 'none'
+#   text formatting is supported: http://minecraft.gamepedia.com/Formatting_codes
+#   %mills% is replaced with time taken by the task (only on db-done)
+#
+# blacklists: 
+#   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+#   if you want to allow everything, delete the list and put "[]" after "use:" and/or "break:"
+#   use:
+#     list of items that creative players cannot use/place
+#     INK_SACK is blacklisted, because bone meal is also an Ink Sac
+#     EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal when shot, which is interfering with survival experience
+#   break:
+#     list of items that creative players cannot break
+#
+database:
+  type: mysql
+  username: root
+  password: ''
+  host: localhost
+  port: 3306
+  database: rc_db
+  table: rc_tbl
+  
+general:
+  disabled-worlds:
+  - 'survival'
+  command:
+    name: 'restrictedcreative'
+    description: 'Allows player to switch between creative and default gamemodes.'
+    aliases:
+    - 'rc'
+    - 'creative'
+    - 'gmc'
+    - 'gm1'
+  separate-invs: true
+  force-armor: true
+  track:
+    save-blocks: true
+    remove-drops: true
+  disable:
+    interact:
+      inventories: true
+      signs: true
+      entities: true
+    item:
+      drop: true
+      pickup: true
+      throw: true
+    commands:
+    - 'buy|sell'
+    - '(.*)(chest)'
+    combat:
+      pvp: true
+      pve: true
+    creation:
+      wither: true
+      snow-golem: true
+      iron-golem: true
+      
+messages:
+  prefix: '&2&lCreative > '
+  no-permission: '&cYou don''t have enough permissions to do that!'
+  no-console: '&cThis command can only be used in-game.'
+  disabled: '&cYou can''t do that in creative mode.'
+  reloaded: '&aConfig reloaded!'
+  db-load: 'Loading data from database...'
+  db-save: 'Saving data to database...'
+  db-added: 'Added %blocks% new blocks to database.'
+  db-removed: 'Deleted %blocks% old blocks from database.'
+  db-done: 'Done! Took %mills%ms'
+    
+blacklists:
+  use:
+  - 'BEDROCK'
+  - 'BARRIER'
+  - 'ENDER_PORTAL_FRAME'
+  - 'SPLASH_POTION'
+  - 'LINGERING_POTION'
+  - 'MONSTER_EGG'
+  - 'TNT'
+  - 'FLINT_AND_STEEL'
+  - 'FIREBALL'
+  - 'EXP_BOTTLE'
+  - 'INK_SACK'
+  - 'EYE_OF_ENDER'
+  - 'SAPLING'
+  - 'MOB_SPAWNER'
+  - 'EGG'
+  break:
+  - 'BEDROCK'
+  - 'BARRIER'
+  - 'ENDER_PORTAL_FRAME'
