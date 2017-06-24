@@ -21,15 +21,20 @@
 #     description: the main command description
 #     aliases: other forms of the main command
 #   separate-invs: whether creative and survival/adventure inventories should be separate
-#   force-armor: whther to automatically put non-removable colored armor on creative players
-#   track:
-#     save-blocks: whether to save blocks placed in creative mode. REQUIRED for remove-drops: true
-#     remove-drops: whether to remove item drops from blocks placed in creative 
+#   armor:
+#     enabled: whether to automatically put non-removable colored armor on creative players
+#     color: leather armor color value (from this site, for example: https://minecraftcommand.science/armor-color)
+#   permissions:
+#     enabled: whether or not to give special permissions to players in creative mode
+#     list:
+#       list of permissions that are added, when player is put into creative mode, and removed, when their creative mode is removed
+#       to remove a permission instead of adding, just add "-" in front of it
+#   track: whether to save blocks/items placed in creative mode and remove their drops
 #   disable:
 #     interact:
 #       inventories: whether to disable interaction with inventories (chests, hoppers, villagers etc)
-#       signs: whether to disable interaction with signs (shops - [Buy], [Sell] etc)
-#       entities: whether to disable interaction with entities (armor stands, touch holograms etc)
+#       entities: whether to disable interaction (right-clicking) with entities (breeding, armor stands, touch holograms etc, excluding item frames)
+#       breeding: whether to disable animal breeding (this setting won't affect anything if above "entities:" is set to "true")
 #     item:
 #       drop: whether to disable item dropping in creative mode 
 #       pickup: whether to disable item pickup in creative mode
@@ -54,11 +59,15 @@
 #
 # blacklists: 
 #   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
-#   if you want to allow everything, delete the list and put "[]" after "use:" and/or "break:"
-#   use:
-#     list of items that creative players cannot use/place
-#     INK_SACK is blacklisted, because bone meal is also an Ink Sac
+#   if you want to allow everything, delete the list and put "[]" after "use:", "interact:" and/or "break:"
+#   place:
+#     list of items that creative players cannot place
+#   interact:
+#     list of items that creative players cannot use/interact with
+#     SIGNs are blacklisted, because some shop plugins allow selling items by clicking on a sign
+#     INK_SACK is blacklisted, because bone meal is also an Ink Sac and it can be used to grow trees too quickly 
 #     EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal when shot, which is interfering with survival experience
+#     JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
 #   break:
 #     list of items that creative players cannot break
 #
@@ -73,8 +82,8 @@ database:
   password: ''
   host: localhost
   port: 3306
-  database: rc_db
-  table: rc_tbl
+  database: rc_database
+  table: rc_table
 
 converter:
   cc: cc_
@@ -90,16 +99,23 @@ general:
     - 'creative'
     - 'gmc'
     - 'gm1'
+    - 'gamemode'
+    - 'gm'
   separate-invs: true
-  force-armor: true
-  track:
-    save-blocks: true
-    remove-drops: true
+  armor:
+    enabled: true
+    color: 16711680
+  permissions:
+    enabled: false
+    list:
+    - 'prefix.creative'
+    - '-prefix.survival'
+  track: true
   disable:
     interact:
       inventories: true
-      signs: true
       entities: true
+      breeding: true
     item:
       drop: true
       pickup: true
@@ -120,6 +136,7 @@ messages:
   no-permission: '&cYou don''t have enough permissions to do that!'
   no-console: '&cThis command can only be used in-game.'
   disabled: '&cYou can''t do that in creative mode.'
+  disabled-interact: '&cYou can''t do that, because that was modified in creative mode.'
   reloaded: '&aConfig reloaded!'
   db-load: '&eLoading data from database...'
   db-save: '&eSaving data to database...'
@@ -130,25 +147,30 @@ messages:
   db-done: '&aDone! Took %mills%ms'
   creative-on: '&aCreative mode enabled!'
   creative-off: '&aCreative mode disabled!'
+  wrong-convert: '&cCorrect usage: /rc convert <cc|gmi|sql>'
 
 blacklists:
-  use:
+  place:
   - 'BEDROCK'
   - 'BARRIER'
   - 'ENDER_PORTAL_FRAME'
+  - 'TNT'
+  - 'SAPLING'
+  - 'MOB_SPAWNER'
+  interact:
   - 'SPLASH_POTION'
   - 'LINGERING_POTION'
   - 'MONSTER_EGG'
-  - 'TNT'
   - 'FLINT_AND_STEEL'
   - 'FIREBALL'
   - 'EXP_BOTTLE'
   - 'INK_SACK'
   - 'EYE_OF_ENDER'
-  - 'SAPLING'
-  - 'MOB_SPAWNER'
   - 'EGG'
   - 'LAVA_BUCKET'
+  - 'JUKEBOX'
+  - 'FLOWER_POT'
+  - 'SIGN'
   break:
   - 'BEDROCK'
   - 'BARRIER'
