@@ -56,6 +56,7 @@
 #   text formatting is supported: http://minecraft.gamepedia.com/Formatting_codes
 #   %mills% is replaced with time taken by the task (only on db-done)
 #   %blocks% is replaced with number of blocks processed by the task (only on db-added, db-removed, db-loaded)
+#   %material% is replaced with material name of the block (only on block-added, block-removed, block-info-true, block-info-false)
 #
 # blacklists: 
 #   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
@@ -148,6 +149,15 @@ messages:
   creative-on: '&aCreative mode enabled!'
   creative-off: '&aCreative mode disabled!'
   wrong-convert: '&cCorrect usage: /rc convert <cc|gmi|sql>'
+  wrong-block: '&cCorrect usage: /rc block <add|remove|info|stats>'
+  cancel: '&cCancelled!'
+  block-add: '&aRight-click a block/entity you want to add to the database. Type "/rc block add" again to cancel.'
+  block-added: '&aAdded %material% to the database!'
+  block-remove: '&aRight-click a block/entity you want to remove from the database. Type "/rc block remove" again to cancel.'
+  block-removed: '&aRemoved %material% from the database!'
+  block-info: '&aRight-click a block/entity you want to know more about. Type "/rc block info" again to cancel.'
+  block-info-true: '&aBlock/entity %material% is placed in creative mode!'
+  block-info-false: '&aBlock/entity %material% is not placed in creative mode.'
 
 blacklists:
   place:
