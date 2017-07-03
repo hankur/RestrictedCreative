@@ -149,7 +149,7 @@ messages:
   creative-on: '&aCreative mode enabled!'
   creative-off: '&aCreative mode disabled!'
   wrong-convert: '&cCorrect usage: /rc convert <cc|gmi|sql>'
-  wrong-block: '&cCorrect usage: /rc block <add|remove|info|stats>'
+  wrong-block: '&cCorrect usage: /rc block <add|remove|info>'
   cancel: '&cCancelled!'
   block-add: '&aRight-click a block/entity you want to add to the database. Type "/rc block add" again to cancel.'
   block-added: '&aAdded %material% to the database!'
