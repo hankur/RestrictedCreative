@@ -70,6 +70,7 @@
 #     EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal when shot, which is interfering with survival experience
 #     JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
 #     if you use version below 1.10 and want to disable animal breeding (but not interacting with entities), this is a good place to list items used in breeding
+#     if you use 1.8, comment out (add '#' in front) SPLASH_POTION and LINGERINE_POTION, because they will throw errors, and add POTION 
 #   break:
 #     list of items that creative players cannot break
 #
@@ -170,7 +171,7 @@ blacklists:
   - 'MOB_SPAWNER'
   interact:
   - 'SPLASH_POTION'
-  - 'LINGERING_POTION'
+  - 'LINGERING_POTION' 
   - 'MONSTER_EGG'
   - 'FLINT_AND_STEEL'
   - 'FIREBALL'
