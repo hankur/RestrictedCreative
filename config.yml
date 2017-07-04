@@ -34,7 +34,7 @@
 #     interact:
 #       inventories: whether to disable interaction with inventories (chests, hoppers, villagers etc)
 #       entities: whether to disable interaction (right-clicking) with entities (breeding, armor stands, touch holograms etc, excluding item frames)
-#       breeding: whether to disable animal breeding (this setting won't affect anything if above "entities:" is set to "true")
+#       breeding: whether to disable animal breeding (this setting won't affect anything if above "entities:" is set to "true") - 1.10+ ONLY
 #     item:
 #       drop: whether to disable item dropping in creative mode 
 #       pickup: whether to disable item pickup in creative mode
@@ -69,6 +69,7 @@
 #     INK_SACK is blacklisted, because bone meal is also an Ink Sac and it can be used to grow trees too quickly 
 #     EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal when shot, which is interfering with survival experience
 #     JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
+#     if you use version below 1.10 and want to disable animal breeding (but not interacting with entities), this is a good place to list items used in breeding
 #   break:
 #     list of items that creative players cannot break
 #
@@ -186,4 +187,4 @@ blacklists:
   - 'BARRIER'
   - 'ENDER_PORTAL_FRAME'
   
-  whitelist: []
+whitelist: []
