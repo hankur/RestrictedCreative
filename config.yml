@@ -13,6 +13,11 @@
 #
 # general:
 #   save-interval: time in ticks (20 ticks = 1 second) between each sync to database (recommended: 1200 - 36000)
+#   track: whether to save blocks/items placed in creative mode and remove their drops
+#   separate-invs: whether creative and survival/adventure inventories should be separate
+#   remove-invalid-items: whether to remove invalid items (with custom NBT) from creative players' inventories
+#     invalid items include BARRIER, COMMAND, COMMAND_CHAIN, COMMAND_REPEATING, COMMAND_MINECART, HUGE_MUSHROOM_1, HUGE_MUSHROOM_2, 
+#      MOB_SPAWNER, GRASS_PATH, STRUCTURE_BLOCK, STRUCTURE_VOID, DRAGON_EGG
 #   disabled-worlds:
 #     list of worlds this plugin is disabled in
 #     by default, creative players can't travel to worlds listed here
@@ -20,7 +25,6 @@
 #   command:
 #     description: the main command description
 #     aliases: other forms of the main command
-#   separate-invs: whether creative and survival/adventure inventories should be separate
 #   armor:
 #     enabled: whether to automatically put non-removable colored armor on creative players
 #     color: leather armor color value (from this site, for example: https://minecraftcommand.science/armor-color)
@@ -29,7 +33,6 @@
 #     list:
 #       list of permissions that are added, when player is put into creative mode, and removed, when their creative mode is removed
 #       to remove a permission instead of adding, just add "-" in front of it
-#   track: whether to save blocks/items placed in creative mode and remove their drops
 #   disable:
 #     interact:
 #       inventories: whether to disable interaction with inventories (chests, hoppers, villagers etc)
@@ -165,15 +168,9 @@ messages:
 blacklists:
   place:
   - 'BEDROCK'
-  - 'BARRIER'
   - 'ENDER_PORTAL_FRAME'
   - 'TNT'
   - 'SAPLING'
-  - 'MOB_SPAWNER'
-  - 'COMMAND'
-  - 'COMMAND_CHAIN'
-  - 'COMMAND_MINECART'
-  - 'COMMAND_REPEATING'
   interact:
   - 'SPLASH_POTION'
   - 'LINGERING_POTION' 
@@ -190,7 +187,6 @@ blacklists:
   - 'SIGN'
   break:
   - 'BEDROCK'
-  - 'BARRIER'
   - 'ENDER_PORTAL_FRAME'
   
 whitelist: []
