@@ -164,6 +164,7 @@ messages:
   block-info: '&aRight-click a block/entity you want to know more about. Type "/rc block info" again to cancel.'
   block-info-true: '&aBlock/entity %material% is placed in creative mode!'
   block-info-false: '&aBlock/entity %material% is not placed in creative mode.'
+  cant-switch-spec: '&cYou can''t switch between creative and spectator modes!'
 
 blacklists:
   place:
