@@ -67,13 +67,20 @@
 #   place:
 #     list of items that creative players cannot place
 #   interact:
-#     list of items that creative players cannot use/interact with
-#     SIGNs are blacklisted, because some shop plugins allow selling items by clicking on a sign
-#     INK_SACK is blacklisted, because bone meal is also an Ink Sac and it can be used to grow trees too quickly 
-#     EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal when shot, which is interfering with survival experience
-#     JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
-#     if you use version below 1.10 and want to disable animal breeding (but not interacting with entities), this is a good place to list items used in breeding
-#     if you use 1.8, comment out (add '#' in front) or delete SPLASH_POTION and LINGERING_POTION, because they will throw errors, and add POTION 
+#     in-hand:
+#       list of items that, while holding in hand, creative players cannot use/interact with anything
+#       also blocks items from being placed, but for that use "blacklists.place"
+#       INK_SACK is blacklisted, because bone meal is also an Ink Sac and it can be used to grow trees too quickly 
+#       EYE_OF_ENDERs, for example, are blacklisted because they drop or become a part of the End portal
+#        when shot, which is interfering with survival experience
+#       if you use version below 1.10 and want to disable animal breeding (but not interacting with entities),
+#        this is a good place to list items used in breeding
+#       if you use 1.8, comment out (add '#' in front) or delete SPLASH_POTION and LINGERING_POTION,
+#        because they will throw errors, and add POTION
+#     on-ground:
+#       list of items that, while placed in the world, creative players cannot use/interact with
+#       SIGNs are blacklisted, because some shop plugins allow selling items by clicking on a sign
+#       JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
 #   break:
 #     list of items that creative players cannot break
 #
@@ -164,7 +171,6 @@ messages:
   block-info: '&aRight-click a block/entity you want to know more about. Type "/rc block info" again to cancel.'
   block-info-true: '&aBlock/entity %material% is placed in creative mode!'
   block-info-false: '&aBlock/entity %material% is not placed in creative mode.'
-  cant-switch-spec: '&cYou can''t switch between creative and spectator modes!'
 
 blacklists:
   place:
@@ -173,19 +179,21 @@ blacklists:
   - 'TNT'
   - 'SAPLING'
   interact:
-  - 'SPLASH_POTION'
-  - 'LINGERING_POTION' 
-  - 'MONSTER_EGG'
-  - 'FLINT_AND_STEEL'
-  - 'FIREBALL'
-  - 'EXP_BOTTLE'
-  - 'INK_SACK'
-  - 'EYE_OF_ENDER'
-  - 'EGG'
-  - 'LAVA_BUCKET'
-  - 'JUKEBOX'
-  - 'FLOWER_POT'
-  - 'SIGN'
+    in-hand:
+    - 'SPLASH_POTION'
+    - 'LINGERING_POTION' 
+    - 'MONSTER_EGG'
+    - 'FLINT_AND_STEEL'
+    - 'FIREBALL'
+    - 'EXP_BOTTLE'
+    - 'INK_SACK'
+    - 'EYE_OF_ENDER'
+    - 'EGG'
+    - 'LAVA_BUCKET'
+    on-ground:
+    - 'JUKEBOX'
+    - 'FLOWER_POT'
+    - 'SIGN'
   break:
   - 'BEDROCK'
   - 'ENDER_PORTAL_FRAME'
