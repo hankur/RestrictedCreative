@@ -19,12 +19,12 @@ public class RestrictedCreativeAPI {
     // Adds given block to creative blocks list
     public static void add(Block b) {}
 
-    // Adds given block to creative blocks list
+    // Removes given block from creative blocks list
     public static void remove(Block b) {}
 
-    // Adds given block to creative blocks list
+    // Adds given entity to creative entities list
     public static void add(Entity en) {}
 
-    // Adds given block to creative blocks list
+    // Removes given entity from creative entities list
     public static void remove(Entity en) {}
 }
