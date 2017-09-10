@@ -25,6 +25,10 @@
 #   command:
 #     description: the main command description
 #     aliases: other forms of the main command
+#   regions:
+#     enabled: whether using creative should be limited to certain region(s)
+#     whitelist: list of WorldGuard region names where entering creative mode (via the main command)
+#      and placing blocks/items in creative mode is allowed 
 #   armor:
 #     enabled: whether to automatically put non-removable colored armor on creative players
 #     color: leather armor color value (from this site, for example: https://minecraftcommand.science/armor-color)
@@ -117,6 +121,10 @@ general:
     - 'gm1'
     - 'gamemode'
     - 'gm'
+  regions:
+    enabled: false
+    whitelist:
+    - 'building_competition'
   armor:
     enabled: true
     color: 16711680
@@ -171,6 +179,7 @@ messages:
   block-info: '&aRight-click a block/entity you want to know more about. Type "/rc block info" again to cancel.'
   block-info-true: '&aBlock/entity %material% is placed in creative mode!'
   block-info-false: '&aBlock/entity %material% is not placed in creative mode.'
+  disabled-region: '&cYou can''t do that outside the allowed region.'
 
 blacklists:
   place:
