@@ -6,14 +6,15 @@
 #   port: mysql port, default is 3306
 #   database: name of the database used
 #   table: name of the table used
-#
 # converter:
 #   REMEMBER: converter only works for MySQL databases, so be sure to use MySQL for both previous plugin and this plugin as well before converting
 #   cc: find "db-prefix" setting from your old Creative Control config and copy the value here
-#
 # general:
 #   save-interval: time in ticks (20 ticks = 1 second) between each sync to database (recommended: 1200 - 36000)
 #   track: whether to save blocks/items placed in creative mode and remove their drops
+#   worldedit: REQUIRES WORLDEDIT
+#     enabled: whether to save blocks/items placed with WorldEdit in creative mode and remove their drops
+#     extended: whether to save blocks/items placed with WorldEdit in any gamemode and remove their drops (above must be true)
 #   separate-invs: whether creative and survival/adventure inventories should be separate
 #   remove-invalid-items: whether to remove invalid items (with custom NBT) from creative players' inventories (REQUIRES ProtocolLib)
 #     invalid items include BARRIER, COMMAND, COMMAND_CHAIN, COMMAND_REPEATING, COMMAND_MINECART, HUGE_MUSHROOM_1, HUGE_MUSHROOM_2, 
@@ -57,14 +58,12 @@
 #       wither: whether to disable creating Wither from creative blocks
 #       snow-golem: whether to disable creating Snow Golem from creative blocks
 #       iron-golem: whether to disable creating Iron Golem from creative blocks
-#
 # messages:
 #   if you wish to disable a message, replace it with 'none'
 #   text formatting is supported: http://minecraft.gamepedia.com/Formatting_codes
 #   %mills% is replaced with time taken by the task (only on db-done)
 #   %blocks% is replaced with number of blocks processed by the task (only on db-added, db-removed, db-loaded)
 #   %material% is replaced with material name of the block (only on block-added, block-removed, block-info-true, block-info-false)
-#
 # blacklists: 
 #   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
 #   if you want to allow everything, delete the list and put "[]" after "use:", "interact:" and/or "break:"
@@ -87,7 +86,6 @@
 #       JUKEBOXes and FLOWER_POTs are blacklisted, because they could be used to smuggle stuff into survival mode
 #   break:
 #     list of items that creative players cannot break
-#
 # whitelist:
 #   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
 #   if you want to exclude a block/item from being tracked, add it into the list (see blacklist for example format)
@@ -108,6 +106,9 @@ converter:
 general:
   save-interval: 6000
   track: true
+  worldedit:
+    enabled: false
+    extended: false
   separate-invs: true
   remove-invalid-items: false
   disabled-worlds:
@@ -119,7 +120,6 @@ general:
     - 'creative'
     - 'gmc'
     - 'gm1'
-    - 'gamemode'
     - 'gm'
   regions:
     enabled: false
@@ -202,7 +202,8 @@ blacklists:
     on-ground:
     - 'JUKEBOX'
     - 'FLOWER_POT'
-    - 'SIGN'
+    - 'SIGN_POST'
+    - 'WALL_SIGN'
   break:
   - 'BEDROCK'
   - 'ENDER_PORTAL_FRAME'
