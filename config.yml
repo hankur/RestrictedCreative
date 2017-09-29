@@ -6,9 +6,10 @@
 #   port: mysql port, default is 3306
 #   database: name of the database used
 #   table: name of the table used
-# converter:
+# converter: EXPERIMENTAL - be sure to make a backup first!
 #   REMEMBER: converter only works for MySQL databases, so be sure to use MySQL for both previous plugin and this plugin as well before converting
 #   cc: find "db-prefix" setting from your old Creative Control config and copy the value here
+#   sc: find "MySQL.TableName" setting from your old ShareControl config and copy the value here
 # general:
 #   save-interval: time in ticks (20 ticks = 1 second) between each sync to database (recommended: 1200 - 36000)
 #   track: whether to save blocks/items placed in creative mode and remove their drops
@@ -26,7 +27,7 @@
 #   command:
 #     description: the main command description
 #     aliases: other forms of the main command
-#   regions:
+#   regions: REQUIRES WORLDGUARD
 #     enabled: whether using creative should be limited to certain region(s)
 #     whitelist: list of WorldGuard region names where entering creative mode (via the main command)
 #      and placing blocks/items in creative mode is allowed 
@@ -102,6 +103,7 @@ database:
 
 converter:
   cc: cc_
+  sc: blocks
 
 general:
   save-interval: 6000
