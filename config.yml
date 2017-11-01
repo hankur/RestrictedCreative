@@ -60,11 +60,12 @@
 #       snow-golem: whether to disable creating Snow Golem from creative blocks
 #       iron-golem: whether to disable creating Iron Golem from creative blocks
 # messages:
-#   if you wish to disable a message, replace it with 'none'
+#   if you wish to disable a message, replace it with ''
 #   text formatting is supported: http://minecraft.gamepedia.com/Formatting_codes
 #   %mills% is replaced with time taken by the task (only on db-done)
 #   %blocks% is replaced with number of blocks processed by the task (only on db-added, db-removed, db-loaded)
 #   %material% is replaced with material name of the block (only on block-added, block-removed, block-info-true, block-info-false)
+#   %total% is replaced with total blocks and entities count (only on block-stats)
 # blacklists: 
 #   available values are listed here (for the latest Spigot version): https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
 #   if you want to allow everything, delete the list and put "[]" after "use:", "interact:" and/or "break:"
@@ -172,7 +173,7 @@ messages:
   creative-on: '&aCreative mode enabled!'
   creative-off: '&aCreative mode disabled!'
   wrong-convert: '&cCorrect usage: /rc convert <cc|gmi|sql>'
-  wrong-block: '&cCorrect usage: /rc block <add|remove|info>'
+  wrong-block: '&cCorrect usage: /rc block <add|remove|info|stats>'
   cancel: '&cCancelled!'
   block-add: '&aRight-click a block/entity you want to add to the database. Type "/rc block add" again to cancel.'
   block-added: '&aAdded %material% to the database!'
@@ -182,6 +183,7 @@ messages:
   block-info-true: '&aBlock/entity %material% is placed in creative mode!'
   block-info-false: '&aBlock/entity %material% is not placed in creative mode.'
   disabled-region: '&cYou can''t do that outside the allowed region.'
+  block-stats: '&eTotal creative placed blocks and entities: %total%'
 
 blacklists:
   place:
