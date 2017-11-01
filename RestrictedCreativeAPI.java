@@ -7,6 +7,9 @@ import org.bukkit.entity.ItemFrame;
 public class RestrictedCreativeAPI {
     public RestrictedCreativeAPI() {}
 
+    // Returns the total count of creative placed blocks and entities
+    public static int getTotal() {}
+    
     // Returns whether the block was placed in creative or not
     public static boolean isCreative(Block b) {}
 
