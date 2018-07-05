@@ -1,3 +1,4 @@
+# Config explanation - https://github.com/Prunt/RestrictedCreative/wiki/Config-explanation
 database:
   type: sqlite
   username: root
