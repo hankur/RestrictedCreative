@@ -30,18 +30,26 @@ general:
     - 'gm1'
     - 'gm'
   regions:
-    enabled: false
+    owner-based:
+      enabled: false
+      allow-members: true 
     whitelist:
-    - 'building_competition'
+      enabled: false
+      list:
+      - 'building_competition'
   armor:
     enabled: true
     color: 16711680
   permissions:
     enabled: false
+    vault: false
     list:
     - 'prefix.creative'
     - '-prefix.survival'
   disable:
+    move:
+      below-y: -1
+      above-y: -1
     interact:
       inventories: true
       entities: true
@@ -92,6 +100,11 @@ messages:
   disabled-creature: '&cYou can''t do that, because a part of the creature was placed in creative mode.'
 
 blacklists:
+  items:
+    name:
+    - 'Cash'
+    lore:
+    - '$'
   place:
   - 'BEDROCK'
   - 'ENDER_PORTAL_FRAME'
