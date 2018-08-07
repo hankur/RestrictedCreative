@@ -99,6 +99,7 @@ messages:
   disabled-region: '&cYou can''t do that outside the allowed region.'
   block-stats: '&eTotal creative placed blocks and entities: %total%'
   disabled-creature: '&cYou can''t do that, because a part of the creature was placed in creative mode.'
+  break-block: ''
 
 blacklists:
   items:
